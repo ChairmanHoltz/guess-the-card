@@ -1,5 +1,3 @@
-export let cardPic, cardArr;
-
 export const shuffDeck = async function () {
   const newDeck = await fetch(
     'https://deckofcardsapi.com/api/deck/4ynhvp67xqx4/shuffle/?deck_count=1'
@@ -13,10 +11,13 @@ export const pickCard = async function () {
   );
   const secretCard = await fetchCard.json();
   console.log(secretCard);
-  cardPic = secretCard.cards[0].image;
-  cardArr = [secretCard.cards[0].value, secretCard.cards[0].suit];
+  state.cardPic = secretCard.cards[0].image;
+  state.cardArr = [secretCard.cards[0].value, secretCard.cards[0].suit];
 };
 
+export const checkGuess = function (guess) {};
+
 export const state = {
-  currCard: pickCard(),
+  cardPic: '',
+  cardArr: [],
 };
