@@ -1,9 +1,10 @@
 class mainView {
   _parentEl = document.querySelector('.main');
 
-  getGuess() {
-    const number = this._parentEl.querySelector('.number');
-    const suit = this._parentEl.querySelector('.suit');
+  _getGuess() {
+    const value = this._parentEl.querySelector('.value').value;
+    const suit = this._parentEl.querySelector('.suit').value;
+    return [value, suit];
   }
 
   renderCard(card) {
@@ -11,6 +12,11 @@ class mainView {
     cardImg.src = card;
     const guessFields = this._parentEl.querySelector('.btn');
     guessFields.style.display = 'none';
+  }
+
+  renderOutcome(card) {
+    const guess = this._getGuess();
+    guess === card ? console.log('correct') : console.log('wrong');
   }
 
   addHandlerSubmit(handler) {
