@@ -7,16 +7,35 @@ class mainView {
     return [value, suit];
   }
 
-  renderCard(card) {
+  // renderCard(card) {
+  //   const cardImg = this._parentEl.querySelector('.card-pic');
+  //   cardImg.src = card;
+  //   const guessFields = this._parentEl.querySelector('.btn');
+  //   guessFields.style.display = 'none';
+  // }
+
+  renderOutcome(cardUrl, cardArr) {
+    // grab outcome element
+    const outcomeMessage = this._parentEl.querySelector('.outcome');
+
+    // grab guess data
+    const guess = this._getGuess();
+
+    // evaluate guess
+    guess === cardArr
+      ? (outcomeMessage.textContent = 'Correct!')
+      : (outcomeMessage.textContent = 'Wrong!');
+
+    // display outcome
+    outcomeMessage.classList.remove('hidden');
+
+    // render card image
     const cardImg = this._parentEl.querySelector('.card-pic');
-    cardImg.src = card;
+    cardImg.src = cardUrl;
+
+    //hide guess fields
     const guessFields = this._parentEl.querySelector('.btn');
     guessFields.style.display = 'none';
-  }
-
-  renderOutcome(card) {
-    const guess = this._getGuess();
-    guess === card ? console.log('correct') : console.log('wrong');
   }
 
   addHandlerSubmit(handler) {

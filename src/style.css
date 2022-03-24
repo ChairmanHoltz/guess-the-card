@@ -10,3 +10,7 @@
 .btn {
   justify-items: flex-end;
 }
+
+.hidden {
+  display: none;
+}
