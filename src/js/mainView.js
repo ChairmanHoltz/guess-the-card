@@ -1,5 +1,6 @@
 class mainView {
-  _parentEl = document.querySelector('.main');
+  _parentEl = document.querySelector('.grid-center');
+  _cardImg = document.querySelector('.card-pic');
 
   _getGuess() {
     const value = this._parentEl.querySelector('.value').value;
@@ -13,6 +14,10 @@ class mainView {
   //   const guessFields = this._parentEl.querySelector('.btn');
   //   guessFields.style.display = 'none';
   // }
+
+  renderMysteryCard() {
+    this._cardImg.src = './imgs/dummy_card.svg';
+  }
 
   renderOutcome(cardUrl, cardArr) {
     // grab outcome element
@@ -30,18 +35,29 @@ class mainView {
     outcomeMessage.classList.remove('hidden');
 
     // render card image
-    const cardImg = this._parentEl.querySelector('.card-pic');
-    cardImg.src = cardUrl;
+    this._cardImg.src = cardUrl;
 
     //hide guess fields
-    const guessFields = this._parentEl.querySelector('.btn');
-    guessFields.style.display = 'none';
+    const guessFields = this._parentEl.querySelector('.guess-fields');
+    guessFields.classList.add('hidden');
+
+    // dispaly guess again button
+    const guessAgain = this._parentEl.querySelector('.retry-btn');
+    guessAgain.classList.remove('hidden');
   }
 
   addHandlerSubmit(handler) {
     this._parentEl.addEventListener('click', function (e) {
       const clicked = e.target;
       if (!clicked.classList.contains('draw-btn')) return;
+      handler();
+    });
+  }
+
+  addHandlerRetry(handler) {
+    this._parentEl.addEventListener('click', function (e) {
+      const clicked = e.target;
+      if (!clicked.classList.contains('retry-btn')) return;
       handler();
     });
   }
