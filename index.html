@@ -60,11 +60,37 @@
           Shuffle Deck
         </button>
       </section>
+      <section class="grid-right">
+        <div>Players</div>
+      </section>
       <section class="overlay">
         <div class="setup-window">
+          <h2 class="setup-title">Game Setup</h2>
           <form class="setup">
-            <div class="setup-colum">
+            <div class="setup-column-left">
               <h3 class="setup-heading">Players</h3>
+              <label>#</label>
+              <select name="numPlayers" class="numPlayers">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <div class="player-list">
+                <label>Player 1</label>
+                <input class="player-name" type="text" /><br />
+                <label class="player-name hidden">Player 2</label>
+                <input class="player-name hidden" type="text" /><br />
+                <label class="player-name hidden">Player 3</label>
+                <input class="player-name hidden" type="text" /><br />
+                <label class="player name hidden">Player 4</label>
+                <input class="player-name hidden" type="text" />
+              </div>
+            </div>
+            <div class="setup-column-right">
+              <h3 class="setup-heading">Game Type</h3>
+              <label class="type-label">New card each guess</label><br />
+              <label class="type-label">Same card each guess</label>
             </div>
           </form>
         </div>
