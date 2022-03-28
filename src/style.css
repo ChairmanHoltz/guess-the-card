@@ -115,5 +115,12 @@ h2 {
 }
 
 .setup-column-right {
+  /* position: fixed; */
   grid-column: 2;
+}
+
+.start-btn {
+  grid-column: 2;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

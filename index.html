@@ -77,14 +77,34 @@
                 <option value="4">4</option>
               </select>
               <div class="player-list">
-                <label class="player-name hidden">Player 1</label>
-                <input class="player-name hidden" type="text" /><br />
-                <label class="player-name hidden">Player 2</label>
-                <input class="player-name hidden" type="text" /><br />
-                <label class="player-name hidden">Player 3</label>
-                <input class="player-name hidden" type="text" /><br />
-                <label class="player-name hidden">Player 4</label>
-                <input class="player-name hidden" type="text" />
+                <label data-player="1" class="player-name hidden"
+                  >Player 1</label
+                >
+                <input
+                  data-player="1"
+                  class="player-name hidden"
+                  type="text"
+                /><br />
+                <label data-player="2" class="player-name hidden"
+                  >Player 2</label
+                >
+                <input
+                  data-player="2"
+                  class="player-name hidden"
+                  type="text"
+                /><br />
+                <label data-player="3" class="player-name hidden"
+                  >Player 3</label
+                >
+                <input
+                  data-player="3"
+                  class="player-name hidden"
+                  type="text"
+                /><br />
+                <label data-player="4" class="player-name hidden"
+                  >Player 4</label
+                >
+                <input data-player="4" class="player-name hidden" type="text" />
               </div>
             </div>
             <div class="setup-column-right">
@@ -93,6 +113,7 @@
               <label class="type-label">Same card each guess</label>
             </div>
           </form>
+          <button class="start-btn" type="button">Start</button>
         </div>
       </section>
     </div>

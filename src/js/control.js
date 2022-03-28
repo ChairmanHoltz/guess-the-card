@@ -23,6 +23,7 @@ const controlShuffleBtn = async function () {
 
 const controlNumPlayersMenu = function (numPlayers) {
   console.log(numPlayers);
+  setupView.renderPlayerInput();
 };
 
 const init = async function () {
@@ -31,8 +32,8 @@ const init = async function () {
   mainView.addHandlerSubmit(controlSubmitBtn);
   mainView.addHandlerRetry(controlRetryBtn);
   mainView.addHandlerShuffle(controlShuffleBtn);
-  mainView.renderMysteryCard();
   leftView.renderDeckSize(model.state.deckSize);
   setupView.addHandlerNumPlayers(controlNumPlayersMenu);
+  mainView.renderMysteryCard();
 };
 init();
