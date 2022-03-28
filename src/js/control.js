@@ -1,6 +1,7 @@
 import * as model from './model.js';
 import mainView from './mainView.js';
 import leftView from './leftView.js';
+import setupView from './setupView.js';
 
 const controlSubmitBtn = function () {
   mainView.renderOutcome(model.state.cardPic, model.state.cardArr);
@@ -20,6 +21,10 @@ const controlShuffleBtn = async function () {
   await model.pickCard();
 };
 
+const controlNumPlayersMenu = function (numPlayers) {
+  console.log(numPlayers);
+};
+
 const init = async function () {
   await model.shuffDeck();
   await model.pickCard();
@@ -28,5 +33,6 @@ const init = async function () {
   mainView.addHandlerShuffle(controlShuffleBtn);
   mainView.renderMysteryCard();
   leftView.renderDeckSize(model.state.deckSize);
+  setupView.addHandlerNumPlayers(controlNumPlayersMenu);
 };
 init();
