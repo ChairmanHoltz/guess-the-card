@@ -117,6 +117,7 @@ h2 {
 .setup-column-right {
   /* position: fixed; */
   grid-column: 2;
+  justify-content: center;
 }
 
 .start-btn {
