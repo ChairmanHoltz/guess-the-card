@@ -1,4 +1,4 @@
-class mainView {
+class MainView {
   #parentEl = document.querySelector('.grid-center');
   #cardImg = document.querySelector('.card-pic');
   #guessFields = document.querySelector('.guess-fields');
@@ -33,6 +33,14 @@ class mainView {
     this.#retryBtn.classList.remove('hidden');
   }
 
+  #renderGuessedCard() {
+    this.#guessedCard.classList.remove('hidden');
+    this.#guessedCard.src = `https://deckofcardsapi.com/static/img/${
+      this.#getGuess()[2]
+    }.png`;
+    this.#guessedCardTxt.classList.remove('hidden');
+  }
+
   renderMysteryCard() {
     this.#cardImg.src = './imgs/dummy_card.svg';
     this.#outcomeMessage.classList.add('hidden');
@@ -42,14 +50,6 @@ class mainView {
     this.#shuffleBtn.classList.add('hidden');
     this.#guessedCard.classList.add('hidden');
     this.#guessedCardTxt.classList.add('hidden');
-  }
-
-  #renderGuessedCard() {
-    this.#guessedCard.classList.remove('hidden');
-    this.#guessedCard.src = `https://deckofcardsapi.com/static/img/${
-      this.#getGuess()[2]
-    }.png`;
-    this.#guessedCardTxt.classList.remove('hidden');
   }
 
   renderOutcome(cardUrl, cardArr) {
@@ -99,4 +99,4 @@ class mainView {
   }
 }
 
-export default new mainView();
+export default new MainView();

@@ -1,4 +1,4 @@
-class leftView {
+class LeftView {
   #parentEl = document.querySelector('.grid-left');
   #pastCardList = document.querySelector('.past-cards');
 
@@ -22,4 +22,4 @@ class leftView {
   }
 }
 
-export default new leftView();
+export default new LeftView();

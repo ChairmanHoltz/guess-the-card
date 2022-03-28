@@ -1,4 +1,6 @@
-class setupView {
-  #numPlayers
-  #
+class SetupView {
+  #numPlayers;
+  #currPlayer;
 }
+
+export default new SetupView();
