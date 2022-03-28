@@ -1,63 +1,99 @@
 class mainView {
-  _parentEl = document.querySelector('.grid-center');
-  _cardImg = document.querySelector('.card-pic');
+  #parentEl = document.querySelector('.grid-center');
+  #cardImg = document.querySelector('.card-pic');
+  #guessFields = document.querySelector('.guess-fields');
+  #outcomeMessage = document.querySelector('.outcome');
+  #retryBtn = document.querySelector('.retry-btn');
+  #shuffleBtn = document.querySelector('.shuffle-btn');
+  #guessedCard = document.querySelector('.guess-card');
+  #guessedCardTxt = document.querySelector('.your-guess');
 
-  _getGuess() {
-    const value = this._parentEl.querySelector('.value').value;
-    const suit = this._parentEl.querySelector('.suit').value;
-    return [value, suit];
+  #getGuess() {
+    const value = this.#parentEl.querySelector('.value').value;
+    const suit = this.#parentEl.querySelector('.suit').value;
+
+    // fix code for 10s for API
+    let cardCode;
+    // check if 10, then process accordingly
+    value.charAt(0) === '1'
+      ? (cardCode = `${value.charAt(1)}${suit.charAt(0)}`)
+      : (cardCode = `${value.charAt(0)}${suit.charAt(0)}`);
+    return [value, suit, cardCode];
   }
 
-  // renderCard(card) {
-  //   const cardImg = this._parentEl.querySelector('.card-pic');
-  //   cardImg.src = card;
-  //   const guessFields = this._parentEl.querySelector('.btn');
-  //   guessFields.style.display = 'none';
-  // }
+  #correctGuess() {
+    // outcome text
+    this.#outcomeMessage.textContent = 'CORRECT!';
+    this.#outcomeMessage.classList.add('correct');
+    this.#shuffleBtn.classList.remove('hidden');
+  }
+
+  #wrongGuess() {
+    this.#outcomeMessage.textContent = 'WRONG!';
+    this.#retryBtn.classList.remove('hidden');
+  }
 
   renderMysteryCard() {
-    this._cardImg.src = './imgs/dummy_card.svg';
+    this.#cardImg.src = './imgs/dummy_card.svg';
+    this.#outcomeMessage.classList.add('hidden');
+    this.#outcomeMessage.classList.remove('correct');
+    this.#retryBtn.classList.add('hidden');
+    this.#guessFields.classList.remove('hidden');
+    this.#shuffleBtn.classList.add('hidden');
+    this.#guessedCard.classList.add('hidden');
+    this.#guessedCardTxt.classList.add('hidden');
+  }
+
+  #renderGuessedCard() {
+    this.#guessedCard.classList.remove('hidden');
+    this.#guessedCard.src = `https://deckofcardsapi.com/static/img/${
+      this.#getGuess()[2]
+    }.png`;
+    this.#guessedCardTxt.classList.remove('hidden');
   }
 
   renderOutcome(cardUrl, cardArr) {
-    // grab outcome element
-    const outcomeMessage = this._parentEl.querySelector('.outcome');
-
     // grab guess data
-    const guess = this._getGuess();
+    const guess = this.#getGuess();
+    if (guess.includes('')) return;
 
-    // evaluate guess
-    guess === cardArr
-      ? (outcomeMessage.textContent = 'Correct!')
-      : (outcomeMessage.textContent = 'Wrong!');
-
-    // display outcome
-    outcomeMessage.classList.remove('hidden');
+    // check guess
+    guess[0] === cardArr[0] && guess[1] === cardArr[1]
+      ? this.#correctGuess()
+      : this.#wrongGuess();
 
     // render card image
-    this._cardImg.src = cardUrl;
+    this.#cardImg.src = cardUrl;
+
+    this.#renderGuessedCard();
+
+    // display outcome
+    this.#outcomeMessage.classList.remove('hidden');
 
     //hide guess fields
-    const guessFields = this._parentEl.querySelector('.guess-fields');
-    guessFields.classList.add('hidden');
-
-    // dispaly guess again button
-    const guessAgain = this._parentEl.querySelector('.retry-btn');
-    guessAgain.classList.remove('hidden');
+    this.#guessFields.classList.add('hidden');
   }
 
   addHandlerSubmit(handler) {
-    this._parentEl.addEventListener('click', function (e) {
+    this.#parentEl.addEventListener('click', function (e) {
       const clicked = e.target;
-      if (!clicked.classList.contains('draw-btn')) return;
+      if (!clicked.classList.contains('submit-btn')) return;
       handler();
     });
   }
 
   addHandlerRetry(handler) {
-    this._parentEl.addEventListener('click', function (e) {
+    this.#parentEl.addEventListener('click', function (e) {
       const clicked = e.target;
       if (!clicked.classList.contains('retry-btn')) return;
+      handler();
+    });
+  }
+
+  addHandlerShuffle(handler) {
+    this.#parentEl.addEventListener('click', function (e) {
+      const clicked = e.target;
+      if (!clicked.classList.contains('shuffle-btn')) return;
       handler();
     });
   }

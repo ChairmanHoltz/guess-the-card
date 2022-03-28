@@ -13,11 +13,15 @@ export const pickCard = async function () {
   console.log(secretCard);
   state.cardPic = secretCard.cards[0].image;
   state.cardArr = [secretCard.cards[0].value, secretCard.cards[0].suit];
+  state.deckSize = secretCard.remaining;
+  state.pastCards.push(state.cardArr);
 };
-
-export const checkGuess = function (guess) {};
 
 export const state = {
   cardPic: '',
   cardArr: [],
+  deckSize: 0,
+  pastCards: [],
+  numPlayers: 0,
+  currentPlayer: 0,
 };

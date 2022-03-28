@@ -10,14 +10,19 @@
   </head>
   <body>
     <div class="container">
+      <section class="grid-left">
+        <div class="deck-size"></div>
+        <div>PAST CARDS</div>
+        <ol class="past-cards"></ol>
+      </section>
       <section class="grid-center">
         <h1 class="title">GUESS THE CARD!!!</h1>
-
-        <div class="grid-center">
+        <div class="card">
           <img class="card-pic" />
+          <div class="outcome hidden"></div>
         </div>
         <div class="guess-fields">
-          <div>Value</div>
+          <h3>Value</h3>
           <select name="values" class="value">
             <option value="" selected>Select number</option>
             <option value="ACE">Ace</option>
@@ -29,12 +34,12 @@
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
-            <option value="4">10</option>
+            <option value="10">10</option>
             <option value="JACK">Jack</option>
             <option value="QUEEN">Queen</option>
             <option value="KING">King</option>
           </select>
-          <div>Suit</div>
+          <h3>Suit</h3>
           <select name="suits" class="suit">
             <option value="" selected>Select suit</option>
             <option value="CLUBS">Clubs</option>
@@ -42,12 +47,21 @@
             <option value="HEARTS">Hearts</option>
             <option value="SPADES">Spades</option>
           </select>
-          <button type="button" class="draw-btn">Submit your guess!</button>
+          <br />
+          <button type="button" class="submit-btn btn">
+            Submit your guess!
+          </button>
         </div>
-        <div class="outcome card hidden"></div>
-        <button type="button" class="retry-btn center hidden">
-          Guess Again?
+        <div class="your-guess hidden">Your Guess:</div>
+        <img class="guess-card" />
+        <br />
+        <button type="button" class="retry-btn btn hidden">Guess Again</button>
+        <button type="button" class="shuffle-btn btn hidden">
+          Shuffle Deck
         </button>
+      </section>
+      <section class="setup">
+        <form class="players"></form>
       </section>
     </div>
   </body>
