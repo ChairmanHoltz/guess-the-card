@@ -8,20 +8,17 @@ class SetupView {
     console.log(this.#playerInputs);
   }
 
-  renderPlayerInput() {
-    // grab selected number of players
-    const numPlayers = this.#numPlayersMenu.value;
-
+  renderPlayerInput(number) {
     // loop over input elements and render appropriate amount
     this.#playerInputs.forEach(player => {
       // compare number of players to data attribute
       // render if <=
-      if (player.dataset.player <= numPlayers) {
+      if (player.dataset.player <= number) {
         player.classList.remove('hidden');
       }
 
       // clear if >
-      if (player.dataset.player > numPlayers) {
+      if (player.dataset.player > number) {
         player.classList.add('hidden');
       }
     });

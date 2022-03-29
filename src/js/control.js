@@ -23,7 +23,7 @@ const controlShuffleBtn = async function () {
 
 const controlNumPlayersMenu = function (numPlayers) {
   console.log(numPlayers);
-  setupView.renderPlayerInput();
+  setupView.renderPlayerInput(numPlayers);
 };
 
 const init = async function () {
