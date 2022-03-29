@@ -4,8 +4,12 @@ import leftView from './leftView.js';
 import setupView from './setupView.js';
 
 const controlSubmitBtn = function () {
-  mainView.renderOutcome(model.state.cardPic, model.state.cardArr);
-  leftView.renderPastCards(model.state.pastCards);
+  mainView.renderOutcome(
+    model.state.cardPic,
+    model.state.cardArr,
+    model.state.pastCards
+  );
+  // leftView.renderPastCards(model.state.pastCards);
 };
 
 const controlRetryBtn = async function () {

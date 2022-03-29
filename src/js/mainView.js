@@ -1,3 +1,5 @@
+import leftView from './leftView.js';
+
 class MainView {
   #parentEl = document.querySelector('.grid-center');
   #cardImg = document.querySelector('.card-pic');
@@ -52,7 +54,7 @@ class MainView {
     this.#guessedCardTxt.classList.add('hidden');
   }
 
-  renderOutcome(cardUrl, cardArr) {
+  renderOutcome(cardUrl, cardArr, deck) {
     // grab guess data
     const guess = this.#getGuess();
     if (guess.includes('')) return;
@@ -72,6 +74,7 @@ class MainView {
 
     //hide guess fields
     this.#guessFields.classList.add('hidden');
+    leftView.renderPastCards(deck);
   }
 
   addHandlerSubmit(handler) {
