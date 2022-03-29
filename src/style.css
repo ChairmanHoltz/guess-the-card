@@ -76,8 +76,9 @@ h2 {
 }
 
 .setup {
+  /* position: relative; */
   display: grid;
-  grid-template-columns: 2;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 2;
   border: 1em;
 }
@@ -100,7 +101,7 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 40rem;
-  height: 30rem;
+  height: 20rem;
   background-color: white;
   border-radius: 9px;
 
@@ -121,8 +122,12 @@ h2 {
 }
 
 .start-btn {
-  grid-column: 2;
+  position: absolute;
+  /* grid-column: 2; */
   left: 50%;
+  bottom: 0;
+  width: 10em;
+  height: 5em;
   transform: translate(-50%, -50%);
 }
 
