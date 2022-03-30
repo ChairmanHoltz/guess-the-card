@@ -33,21 +33,21 @@ class SetupView {
     this.#startBtn.addEventListener('click', this.#hideOverlay.bind(this));
   }
 
-  // addHandlerNumPlayers(handler) {
-  //   this.#numPlayersMenu.addEventListener('change', function (e) {
-  //     const numPlayers = e.target.value;
-  //     handler(numPlayers);
-  //   });
-  // }
-
-  addHandlerStartBtn(handler) {
-    this.#parentEl.addEventListener('submit', function (e) {
-      const clicked = e.target;
-      if (!clicked.classList.contains('start-btn')) return;
-      const formData = [...new FormData(this)];
-      handler();
+  addHandlerNumPlayers(handler) {
+    this.#numPlayersMenu.addEventListener('change', function (e) {
+      const numPlayers = e.target.value;
+      handler(numPlayers);
     });
   }
+
+  // addHandlerStartBtn(handler) {
+  //   this.#parentEl.addEventListener('submit', function (e) {
+  //     const clicked = e.target;
+  //     if (!clicked.classList.contains('start-btn')) return;
+  //     const formData = [...new FormData(this)];
+  //     handler();
+  //   });
+  // }
 }
 
 export default new SetupView();

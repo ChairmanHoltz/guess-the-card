@@ -40,7 +40,7 @@ const init = async function () {
   mainView.addHandlerRetry(controlRetryBtn);
   mainView.addHandlerShuffle(controlShuffleBtn);
   leftView.renderDeckSize(model.state.deckSize);
-  // setupView.addHandlerNumPlayers(controlNumPlayersMenu);
+  setupView.addHandlerNumPlayers(controlNumPlayersMenu);
   // setupView.addHandlerStartBtn(controlStartBtn).bind(this);
   mainView.renderMysteryCard();
 };
