@@ -12,8 +12,6 @@ export const incrementCurrPlayer = function () {
   state.currentPlayer < state.numPlayers - 1
     ? state.currentPlayer++
     : (state.currentPlayer = 0);
-
-  console.log(state.currentPlayer);
 };
 
 export const getNumPlayers = function (num) {

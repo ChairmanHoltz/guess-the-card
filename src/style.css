@@ -62,7 +62,9 @@ h2 {
 .correct {
   transform: rotate(45deg);
   color: rgb(25, 0, 255);
-  left: -25%;
+  /* left: auto; */
+  right: auto;
+  top: 2em;
 }
 
 .btn {
@@ -153,4 +155,6 @@ h3 {
 
 .highlight {
   background-color: white;
+  width: fit-content;
+  font-style: italic;
 }
