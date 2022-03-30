@@ -7,9 +7,17 @@ export const state = {
   currentPlayer: 0,
 };
 
+export const incrementCurrPlayer = function () {
+  // do something
+  state.currentPlayer < state.numPlayers - 1
+    ? state.currentPlayer++
+    : (state.currentPlayer = 0);
+
+  console.log(state.currentPlayer);
+};
+
 export const getNumPlayers = function (num) {
   state.numPlayers = num;
-  console.log(state.numPlayers);
 };
 
 export const shuffDeck = async function () {

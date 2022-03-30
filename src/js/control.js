@@ -7,6 +7,7 @@ import rightView from './rightView.js';
 const controlStartBtn = function () {
   model.getNumPlayers(setupView.numPlayers);
   rightView.renderPlayerNames();
+  rightView.highlightCurrPlayer(model.state.currentPlayer);
 };
 
 const controlSubmitBtn = function () {
@@ -21,6 +22,8 @@ const controlRetryBtn = async function () {
   mainView.renderMysteryCard();
   await model.pickCard();
   leftView.renderDeckSize(model.state.deckSize);
+  model.incrementCurrPlayer();
+  rightView.highlightCurrPlayer(model.state.currentPlayer);
 };
 
 const controlShuffleBtn = async function () {

@@ -4,9 +4,9 @@ class SetupView {
   #playerInputs = document.querySelectorAll('.player-name');
   #playerNames = document.querySelectorAll('.name');
   #startBtn = document.querySelector('.start-btn');
+  playerNamesArr = [];
   currPlayer;
   numPlayers;
-  playerNamesArr = [];
 
   #processOverlay() {
     this.numPlayers = this.#numPlayersMenu.value;
