@@ -14,13 +14,16 @@ class RightView {
   }
 
   highlightCurrPlayer(curr) {
-    // do something
+    // grab node list of current players
     const currPlayerArr = document.querySelectorAll('.curr-players-item');
+
+    // remove highlight from all players
     currPlayerArr.forEach(player => {
       player.classList.remove('highlight');
     });
+
+    // add highlight to current player
     currPlayerArr[curr].classList.add('highlight');
-    // setupView.playerNamesArr;
   }
 }
 

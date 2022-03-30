@@ -14,7 +14,8 @@ const controlSubmitBtn = function () {
   mainView.renderOutcome(
     model.state.cardPic,
     model.state.cardArr,
-    model.state.pastCards
+    model.state.pastCards,
+    setupView.playerNamesArr[model.state.currentPlayer]
   );
 };
 

@@ -23,9 +23,9 @@ class MainView {
     return [value, suit, cardCode];
   }
 
-  #correctGuess() {
+  #correctGuess(currPlayer) {
     // outcome text
-    this.#outcomeMessage.textContent = 'CORRECT!';
+    this.#outcomeMessage.textContent = `${currPlayer} WINS!`;
     this.#outcomeMessage.classList.add('correct');
     this.#shuffleBtn.classList.remove('hidden');
   }
@@ -54,14 +54,14 @@ class MainView {
     this.#guessedCardTxt.classList.add('hidden');
   }
 
-  renderOutcome(cardUrl, cardArr, deck) {
+  renderOutcome(cardUrl, cardArr, deck, currPlayer) {
     // grab guess data
     const guess = this.#getGuess();
     if (guess.includes('')) return;
 
     // check guess
     guess[0] === cardArr[0] && guess[1] === cardArr[1]
-      ? this.#correctGuess()
+      ? this.#correctGuess(currPlayer)
       : this.#wrongGuess();
 
     // render card image
