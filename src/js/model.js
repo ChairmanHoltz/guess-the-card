@@ -1,3 +1,17 @@
+export const state = {
+  cardPic: '',
+  cardArr: [],
+  deckSize: 0,
+  pastCards: [],
+  numPlayers: 0,
+  currentPlayer: 0,
+};
+
+export const getNumPlayers = function (num) {
+  state.numPlayers = num;
+  console.log(state.numPlayers);
+};
+
 export const shuffDeck = async function () {
   const newDeck = await fetch(
     'https://deckofcardsapi.com/api/deck/4ynhvp67xqx4/shuffle/?deck_count=1'
@@ -15,13 +29,4 @@ export const pickCard = async function () {
   state.cardArr = [secretCard.cards[0].value, secretCard.cards[0].suit];
   state.deckSize = secretCard.remaining;
   state.pastCards.push(state.cardArr);
-};
-
-export const state = {
-  cardPic: '',
-  cardArr: [],
-  deckSize: 0,
-  pastCards: [],
-  numPlayers: 0,
-  currentPlayer: 0,
 };

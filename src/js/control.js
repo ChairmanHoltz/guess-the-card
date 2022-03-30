@@ -2,9 +2,11 @@ import * as model from './model.js';
 import mainView from './mainView.js';
 import leftView from './leftView.js';
 import setupView from './setupView.js';
+import rightView from './rightView.js';
 
 const controlStartBtn = function () {
-  // do something
+  model.getNumPlayers(setupView.numPlayers);
+  rightView.renderPlayerNames();
 };
 
 const controlSubmitBtn = function () {
@@ -36,12 +38,13 @@ const controlNumPlayersMenu = function (numPlayers) {
 const init = async function () {
   await model.shuffDeck();
   await model.pickCard();
+  setupView.addHandlerNumPlayers(controlNumPlayersMenu);
+  setupView.addHandlerHideOverlay();
+  setupView.addHandlerStartBtn(controlStartBtn);
   mainView.addHandlerSubmit(controlSubmitBtn);
   mainView.addHandlerRetry(controlRetryBtn);
   mainView.addHandlerShuffle(controlShuffleBtn);
-  leftView.renderDeckSize(model.state.deckSize);
-  setupView.addHandlerNumPlayers(controlNumPlayersMenu);
-  // setupView.addHandlerStartBtn(controlStartBtn).bind(this);
   mainView.renderMysteryCard();
+  leftView.renderDeckSize(model.state.deckSize);
 };
 init();

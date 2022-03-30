@@ -2,14 +2,19 @@ class SetupView {
   #parentEl = document.querySelector('.overlay');
   #numPlayersMenu = document.querySelector('.num-players');
   #playerInputs = document.querySelectorAll('.player-name');
+  #playerNames = document.querySelectorAll('.name');
   #startBtn = document.querySelector('.start-btn');
-  #currPlayer;
+  currPlayer;
+  numPlayers;
+  playerNamesArr = [];
 
-  constructor() {
-    this.#addHandlerHideOverlay();
-  }
-
-  #hideOverlay() {
+  #processOverlay() {
+    this.numPlayers = this.#numPlayersMenu.value;
+    this.#playerNames.forEach(playerName => {
+      if (!playerName.classList.contains('hidden'))
+        this.playerNamesArr.push(playerName.value);
+    });
+    console.log(this.playerNamesArr);
     this.#parentEl.classList.add('hidden');
   }
 
@@ -29,8 +34,8 @@ class SetupView {
     });
   }
 
-  #addHandlerHideOverlay() {
-    this.#startBtn.addEventListener('click', this.#hideOverlay.bind(this));
+  addHandlerHideOverlay() {
+    this.#startBtn.addEventListener('click', this.#processOverlay.bind(this));
   }
 
   addHandlerNumPlayers(handler) {
@@ -40,14 +45,13 @@ class SetupView {
     });
   }
 
-  // addHandlerStartBtn(handler) {
-  //   this.#parentEl.addEventListener('submit', function (e) {
-  //     const clicked = e.target;
-  //     if (!clicked.classList.contains('start-btn')) return;
-  //     const formData = [...new FormData(this)];
-  //     handler();
-  //   });
-  // }
+  addHandlerStartBtn(handler) {
+    this.#parentEl.addEventListener('click', function (e) {
+      const clicked = e.target;
+      if (!clicked.classList.contains('start-btn')) return;
+      handler();
+    });
+  }
 }
 
 export default new SetupView();
