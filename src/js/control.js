@@ -3,13 +3,16 @@ import mainView from './mainView.js';
 import leftView from './leftView.js';
 import setupView from './setupView.js';
 
+const controlStartBtn = function () {
+  // do something
+};
+
 const controlSubmitBtn = function () {
   mainView.renderOutcome(
     model.state.cardPic,
     model.state.cardArr,
     model.state.pastCards
   );
-  // leftView.renderPastCards(model.state.pastCards);
 };
 
 const controlRetryBtn = async function () {
@@ -38,6 +41,7 @@ const init = async function () {
   mainView.addHandlerShuffle(controlShuffleBtn);
   leftView.renderDeckSize(model.state.deckSize);
   setupView.addHandlerNumPlayers(controlNumPlayersMenu);
+  setupView.addHandlerStartBtn(controlStartBtn).bind(this);
   mainView.renderMysteryCard();
 };
 init();

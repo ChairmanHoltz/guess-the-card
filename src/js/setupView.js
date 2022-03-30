@@ -2,10 +2,15 @@ class SetupView {
   #parentEl = document.querySelector('.overlay');
   #numPlayersMenu = document.querySelector('.num-players');
   #playerInputs = document.querySelectorAll('.player-name');
+  #startBtn = document.querySelector('.start-btn');
   #currPlayer;
 
   constructor() {
-    console.log(this.#playerInputs);
+    this.#addHandlerHideOverlay();
+  }
+
+  #hideOverlay() {
+    this.#parentEl.classList.add('hidden');
   }
 
   renderPlayerInput(number) {
@@ -24,10 +29,23 @@ class SetupView {
     });
   }
 
-  addHandlerNumPlayers(handler) {
-    this.#numPlayersMenu.addEventListener('change', function (e) {
-      const numPlayers = e.target.value;
-      handler(numPlayers);
+  #addHandlerHideOverlay() {
+    this.#startBtn.addEventListener('click', this.#hideOverlay.bind(this));
+  }
+
+  // addHandlerNumPlayers(handler) {
+  //   this.#numPlayersMenu.addEventListener('change', function (e) {
+  //     const numPlayers = e.target.value;
+  //     handler(numPlayers);
+  //   });
+  // }
+
+  addHandlerStartBtn(handler) {
+    this.#parentEl.addEventListener('submit', function (e) {
+      const clicked = e.target;
+      if (!clicked.classList.contains('start-btn')) return;
+      const formData = [...new FormData(this)];
+      handler();
     });
   }
 }
