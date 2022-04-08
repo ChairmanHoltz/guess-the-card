@@ -5,7 +5,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 3em 2fr auto;
   background-color: rgb(255, 145, 0);
   font-family: sans-serif;
@@ -38,10 +38,6 @@
   margin-top: 1em;
   grid-column: 2;
   grid-row: 1;
-}
-
-h2 {
-  text-align: center;
 }
 
 .card {
@@ -87,9 +83,11 @@ h2 {
 .setup {
   /* position: relative; */
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2;
+  grid-template-columns: 300px;
+  grid-template-rows: 1fr auto;
   border: 1em;
+  justify-content: center;
+  justify-items: center;
 }
 
 .overlay {
@@ -109,8 +107,8 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40rem;
-  height: 20rem;
+  width: 7rem;
+  height: fit-content;
   background-color: white;
   border-radius: 9px;
 
@@ -119,10 +117,11 @@ h2 {
   z-index: 1000;
   transition: all 0.5s;
 }
-
+/* 
 .setup-column-left {
   grid-column: 1;
-}
+  justify-items: center; 
+} */
 
 .setup-column-right {
   grid-column: 2;
@@ -134,14 +133,19 @@ h2 {
   margin-bottom: 1em;
 }
 
+.player-name {
+  width: 7em;
+}
+
 .start-btn {
-  position: absolute;
-  /* grid-column: 2; */
+  /* position: absolute; */
+  grid-column: 1;
+  justify-content: center;
   left: 50%;
   bottom: 0;
   width: 10em;
   height: 5em;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
 }
 
 .type-label {
