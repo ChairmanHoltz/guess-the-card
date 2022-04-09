@@ -1,12 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3em 2fr auto;
+  grid-template-rows: 3em 2fr;
   background-color: rgb(255, 145, 0);
   font-family: sans-serif;
   height: 100%;
@@ -15,8 +16,12 @@
 .grid-left {
   grid-column: 1;
   grid-row: 2;
-  margin-top: 4em;
-  margin-left: 30%;
+  /* margin-top: 4em; */
+  /* margin-left: 30%; */
+  text-align: center;
+  justify-content: right;
+  justify-items: right;
+  /* width: fit-content; */
 }
 
 .grid-center {
@@ -33,15 +38,31 @@
   margin-left: 30%;
 }
 
+/* h4 {
+  width: fit-content;
+  margin: 0;
+  text-align: center;
+} */
+
 .title {
   text-align: center;
-  margin-top: 1em;
-  grid-column: 2;
+  align-self: center;
+  /* margin-top: 1em; */
+  grid-column: 1 / -1;
   grid-row: 1;
 }
 
 .card {
-  position: relative;
+  /* justify-content: right; */
+  width: fit-content;
+  justify-self: right;
+}
+
+.card-pic {
+  width: 10em;
+  height: auto;
+  justify-self: right;
+  text-align: center;
 }
 
 .outcome {
