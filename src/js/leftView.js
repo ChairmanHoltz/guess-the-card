@@ -12,7 +12,9 @@ class LeftView {
     this.#pastCardList.insertAdjacentHTML(
       'beforeend',
       `
-        <li>${lastCard[0]} of ${lastCard[1]}</li>
+        <li>${lastCard[0]} of ${
+        lastCard[1].slice(0, 1) + lastCard[1].slice(1).toLowerCase()
+      }</li>
       `
     );
   }
