@@ -6,22 +6,20 @@
 
 .container {
   display: grid;
+  width: 400px;
+  justify-content: center;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3em 2fr;
   background-color: rgb(255, 145, 0);
   font-family: sans-serif;
-  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .grid-left {
   grid-column: 1;
   grid-row: 2;
-  /* margin-top: 4em; */
-  /* margin-left: 30%; */
   text-align: center;
-  justify-content: right;
-  justify-items: right;
-  /* width: fit-content; */
 }
 
 .grid-center {
@@ -31,12 +29,12 @@
   font-size: 1em;
 }
 
-.grid-right {
+/* .grid-right {
   grid-column: 3;
   grid-row: 2;
   margin-top: 4em;
   margin-left: 30%;
-}
+} */
 
 /* h4 {
   width: fit-content;
@@ -52,17 +50,19 @@
   grid-row: 1;
 }
 
-.card {
-  /* justify-content: right; */
+/* .card {
+  justify-content: right;
   width: fit-content;
   justify-self: right;
-}
+  margin: 0;
+  justify-content: center;
+  margin-left: 50%;
+} */
 
 .card-pic {
   width: 10em;
   height: auto;
-  justify-self: right;
-  text-align: center;
+  margin: 0;
 }
 
 .outcome {
@@ -104,7 +104,7 @@
 .setup {
   /* position: relative; */
   display: grid;
-  grid-template-columns: 300px;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
   border: 1em;
   justify-content: center;
@@ -125,7 +125,7 @@
 
 .setup-window {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 7rem;
