@@ -1,5 +1,5 @@
 class LeftView {
-  #parentEl = document.querySelector('.grid-left');
+  #parentEl = document.querySelector('.grid-center');
   #pastCardList = document.querySelector('.past-cards');
 
   renderDeckSize(deck) {

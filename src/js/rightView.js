@@ -1,7 +1,7 @@
 import setupView from './setupView.js';
 
 class RightView {
-  #parentEl = document.querySelector('.grid-right');
+  #parentEl = document.querySelector('.grid-center');
 
   renderPlayerNames() {
     const currPlayerList = this.#parentEl.querySelector('.current-players');
