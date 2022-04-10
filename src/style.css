@@ -60,7 +60,7 @@
 } */
 
 .card-pic {
-  width: 10em;
+  width: 100px;
   height: auto;
   margin: 0;
 }
@@ -125,7 +125,7 @@
 
 .setup-window {
   position: fixed;
-  top: 30%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 7rem;
@@ -138,11 +138,11 @@
   z-index: 1000;
   transition: all 0.5s;
 }
-/* 
-.setup-column-left {
-  grid-column: 1;
-  justify-items: center; 
-} */
+
+.setup-title {
+  font-size: 16px;
+  text-align: center;
+}
 
 .setup-column-right {
   grid-column: 2;
